@@ -1,0 +1,11 @@
+[init]
+	defaultBranch = main
+[user]
+	email = punsanford@gmail.com
+	name = Sanford Pun
+[core]
+    eol = lf
+    filemode = true
+[alias]
+    logdog = log --decorate --oneline --graph
+    cf = cat-file -p
