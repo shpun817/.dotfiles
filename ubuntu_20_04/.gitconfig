@@ -6,6 +6,7 @@
 [core]
     eol = lf
     filemode = true
+	autocrlf = input
 [alias]
     logdog = log --decorate --oneline --graph
     cf = cat-file -p
