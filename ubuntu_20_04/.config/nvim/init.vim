@@ -4,8 +4,8 @@ source ~/.config/nvim/vim-plug/plugins.vim
 " Set up nvim-cmp the completion engine
 source ~/.config/nvim/nvim-cmp/setup.vim
 
-" Disable comment continuation
-autocmd FileType * set formatoptions-=cro
+" Run autocmd's
+source ~/.config/nvim/autocmd.vim
 
 " Show line numbers in netrw
 let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
