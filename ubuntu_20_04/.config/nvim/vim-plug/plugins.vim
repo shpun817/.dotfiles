@@ -18,6 +18,9 @@ Plug 'onsails/lspkind.nvim'
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
 
+" Autoformatting
+Plug 'vim-autoformat/vim-autoformat'
+
 " Commenting
 Plug 'numToStr/Comment.nvim'
 

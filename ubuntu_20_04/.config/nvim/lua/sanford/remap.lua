@@ -4,7 +4,8 @@ local vnoremap = require("sanford.keymap").vnoremap
 
 -- Shortcuts
 nnoremap("<leader>pv", "<cmd>Ex<CR>") -- Open netrw
-nnoremap("<C-s>", "<cmd>w<CR>") -- Save file
+nnoremap("<C-s>", "<cmd>update<CR>") -- Save file
+inoremap("<C-s>", "<cmd>update<CR>") -- Save file in insert mode
 nnoremap("<leader>r", "<cmd>registers<CR>") -- Show contents in registers
 nnoremap("<leader>cm", ":!") -- Execute command
 nnoremap("<leader>;", "m\"A;<Esc>`\"") -- Insert semicolon at the end of the line
