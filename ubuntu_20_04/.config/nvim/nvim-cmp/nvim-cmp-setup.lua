@@ -21,7 +21,7 @@ cmp.setup({
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
         ['<C-Space>'] = cmp.mapping.complete(),
         ['<C-e>'] = cmp.mapping.abort(),
-        -- ['<Tab>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+        ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
         ['<Tab>'] = function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()
@@ -128,5 +128,8 @@ require('lspconfig')['rust_analyzer'].setup {
     }
 }
 require('lspconfig')['clangd'].setup {
+    capabilities = capabilities
+}
+require('lspconfig')['gopls'].setup {
     capabilities = capabilities
 }
