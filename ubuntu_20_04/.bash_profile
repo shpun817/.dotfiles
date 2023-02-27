@@ -38,3 +38,14 @@ if [ -f $HOME/.bashrc ]; then
     source $HOME/.bashrc
 fi
 
+# Java LSP setup
+export PATH=$PATH:$HOME/jdtls/bin
+
+# Ruby setup
+eval "$(~/.rbenv/bin/rbenv init - bash)"
+export GEM_HOME="$HOME/gems"
+export PATH="$HOME/gems/bin:$PATH"
+
+# Deno setup
+export DENO_INSTALL="/home/shpun/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
