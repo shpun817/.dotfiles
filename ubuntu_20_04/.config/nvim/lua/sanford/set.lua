@@ -11,7 +11,7 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
-vim.opt.timeout = false
+vim.opt.timeoutlen = 3000
 
 vim.opt.autoindent = true
 vim.opt.smartindent = true
@@ -19,3 +19,6 @@ vim.opt.smartindent = true
 vim.opt.wrap = false
 
 vim.g.mapleader = " "
+vim.g.markdown_fenced_languages = {
+    "ts=typescript"
+}

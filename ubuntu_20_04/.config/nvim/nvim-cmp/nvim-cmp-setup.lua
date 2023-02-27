@@ -21,21 +21,21 @@ cmp.setup({
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
         ['<C-Space>'] = cmp.mapping.complete(),
         ['<C-e>'] = cmp.mapping.abort(),
-        ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-        ['<Tab>'] = function(fallback)
+        ['<Tab>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+        ['<S-Tab>'] = function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()
             else
                 fallback()
             end
         end,
-        ['<S-Tab>'] = function(fallback)
-            if cmp.visible() then
-                cmp.select_prev_item()
-            else
-                fallback()
-            end
-        end
+        -- ['<S-Tab>'] = function(fallback)
+        --     if cmp.visible() then
+        --         cmp.select_prev_item()
+        --     else
+        --         fallback()
+        --     end
+        -- end
     }),
     sources = cmp.config.sources({
         { name = 'nvim_lsp', max_item_count = 8 },
@@ -59,9 +59,10 @@ cmp.setup({
             and not context.in_syntax_group("Comment")
         end
     end,
-    view = {
-        entries = {name = 'custom', selection_order = 'near_cursor' }
-    },
+    -- Reverse menu when cursor is near bottom of screen
+    -- view = {
+    --     entries = {name = 'custom', selection_order = 'near_cursor' }
+    -- },
     formatting = {
         format = lspkind.cmp_format({
             mode = "symbol_text",
@@ -131,5 +132,8 @@ require('lspconfig')['clangd'].setup {
     capabilities = capabilities
 }
 require('lspconfig')['gopls'].setup {
+    capabilities = capabilities
+}
+require('lspconfig')['denols'].setup {
     capabilities = capabilities
 }
