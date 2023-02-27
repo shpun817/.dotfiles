@@ -114,14 +114,16 @@ set -o ignoreeof
 umask 022 # restrict default permissions for files directories
 
 function parse_git_branch() {
+    local last_errno=$?
     # Parse the current git branch name and print it
-    which git &>/dev/null || return
+    which git &>/dev/null || return $last_errno
     local branch=$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
     [[ -n $branch ]] && echo " [${branch}]"
+    return $last_errno
 }
 
 function set_PS1 {
-    export PS1='\e[0;32m\u@\h\e[0m \A \e[0;36m\w\e[0m $(parse_git_branch)\n\! \$ '
+    export PS1='\e[0;32m\u@\h\e[0m \e[0;36m\w\e[0m $(parse_git_branch) \n\! \[\e[0;$(($?==0?0:91))m\]$ \[\e[0m\]'
 }
 
 set_PS1
